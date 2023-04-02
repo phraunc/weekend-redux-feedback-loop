@@ -6,11 +6,27 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import App from './components/App/App';
 
+// const feedbackList =(state = [], action) =>{
+//     if(action.type === 'GETFEEDBACK_LIST'){
+//         return action.payload
+//     }
+//     return state
+
+// }
+
+const feelingFeedback = (state =[], action) => {
+
+    return
+
+    return state
+
+}
 
 
 const storeInstance = createStore(
     combineReducers({
-        
+    //    feedbackList 
+        feelingFeedback
     }),
     applyMiddleware(logger)
 )
