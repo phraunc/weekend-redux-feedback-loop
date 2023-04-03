@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import FeelingFeedback from '../FeelingFeedback/FeelingFeedback';
+import ContentFeedback from '../ContentFeedback/ContentFeedback';
+import SupportFeedback from '../SupportFeedback/SupportFeedback';
+import CommentsFeedback from '../CommentsFeedback/CommentsFeedback';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import './App.css';
 
 import { useSelector, useDispatch } from "react-redux";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -59,6 +63,7 @@ function App() {
           <li>
             <Link to="/comments">Comments</Link>
           </li>
+          <Link to="/review">Review</Link>
         </ul>
       </nav>
       <div>
@@ -66,15 +71,19 @@ function App() {
         <Route path="/feeling">
         <FeelingFeedback />
         </Route>
-        <Route path="content">
-          
+        <Route path="/content">
+          <ContentFeedback />
         </Route>
         <Route path="/support">
-
+          <SupportFeedback />
         </Route>
         <Route path="/comments">
-
+          <CommentsFeedback />
         </Route>
+        <Route path="/review">
+        <ReviewFeedback />
+        </Route>
+
         
 
         {/* <ul>

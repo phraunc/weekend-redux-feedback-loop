@@ -5,35 +5,40 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
-function FeelingFeedback() {
+
+function CommentsFeedback(){
   const history = useHistory();
   const dispatch = useDispatch();
 
-
-  const handleClick = () =>{
-    history.push('/content')
-  }
+  const comments = useSelector(store => store.review );
 
   dispatch({
-    type: 'FEELINGS_FEEDBACK',
+    type:"COMMENT_FEEDBACK",
+    payload: comments
   })
+  
 
+  const handleClick = () =>{
+    
+    history.push('/review')
+  }
 
-  return (
-    <>
-      <div>
-        <h1>How are you feeling today?</h1>
+    return(
+        
+        <div>
+        <h1>Any comments you want to leave?</h1>
         <br />
 
         <br />
-        <label for="feelings">Feeling</label>
+        <label for="comments">Comments</label>
         <br />
         <br />
-        <input type="number" id="feelings" name="feelings" min="1" max="5" />
+        <input type="text" id="comment" name="comment" />
         <button type="button" onClick={handleClick}>NEXT</button>
       </div>
-    </>
-  );
+    
+        
+    )
 }
 
-export default FeelingFeedback;
+export default CommentsFeedback;
